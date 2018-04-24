@@ -8,10 +8,17 @@ import org.springframework.messaging.SubscribableChannel;
 public interface StreamClient {
 
     String INPUT = "myMessage";
+    String RECEIVE = "receiveMessage";
 
     @Input(StreamClient.INPUT)
     SubscribableChannel input();
 
     @Output(StreamClient.INPUT)
     MessageChannel output();
+
+    @Input(StreamClient.RECEIVE)
+    SubscribableChannel inputReceive();
+
+    @Output(StreamClient.RECEIVE)
+    MessageChannel outputReceive();
 }
